@@ -600,19 +600,3 @@ if __name__ == "__main__":
     window = f1_app()
     window.show()
     app.exec_()
-
-#  ergast = Ergast()
-#         resp = ergast.get_driver_standings(year)
-#         resp2 = ergast.get_constructor_standings(year)
-
-#         if not resp.content:
-#                 driver = "Unavailable"
-#         else:
-#                 leader = resp.content[0]
-#                 driver = f"{leader.givenName[0]} {leader.familyName[0]} - {leader.constructorNames[0][0]}"
-
-#         if not resp2.content:
-#                 constructor = "Unavailable"
-#         else:
-#                 constructor_leader = resp2.content[0]
-#                 constructor = f"{constructor_leader.constructorName[0]}"
