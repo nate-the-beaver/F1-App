@@ -40,10 +40,18 @@ class f1_app(QWidget):
 
         self.initUI()
 
+        self.home_func()
+        self.schedule_func()
+        self.constructors_func()
+        self.drivers_func()
+
+        self.stack.setCurrentIndex(0)
+
     def initUI(self):
 
         # Main Window
         self.setWindowTitle("F1 App")
+        self.setWindowIcon(QIcon("f1applogo.png"))
         self.resize(500, 500)
 
         # Main Driver (QStackedWidget) Page
@@ -57,9 +65,6 @@ class f1_app(QWidget):
         self.main_layout.setSpacing(0)
 
         self.setLayout(self.main_layout)
-
-        #start with home
-        self.home_func()
 
         self.setStyleSheet("""
         /* Home */      
@@ -273,10 +278,9 @@ class f1_app(QWidget):
 
     def home_backend(self, home_widgets, special_widgets):
 
-        home_widgets[7].clicked.connect(lambda: (self.stack.setCurrentIndex(1), self.schedule_func()))
-        home_widgets[10].clicked.connect(lambda: (self.stack.setCurrentIndex(2), self.constructors_func()))
-        home_widgets[13].clicked.connect(lambda: (self.stack.setCurrentIndex(3), self.drivers_func()))
-
+        home_widgets[7].clicked.connect(lambda: self.stack.setCurrentIndex(1))
+        home_widgets[10].clicked.connect(lambda: self.stack.setCurrentIndex(2))
+        home_widgets[13].clicked.connect(lambda: self.stack.setCurrentIndex(3))
 
         # get current schedule and time
         year = datetime.now().year
@@ -465,7 +469,7 @@ class f1_app(QWidget):
         # Hide row numbers
         table.verticalHeader().setVisible(False)
 
-        back_home.clicked.connect(lambda: (self.stack.setCurrentIndex(0), self.loading()))
+        back_home.clicked.connect(lambda: self.stack.setCurrentIndex(0))
 
     def constructors_func(self):
 
@@ -527,7 +531,7 @@ class f1_app(QWidget):
             # No constructor data available
             pass
 
-        back_home.clicked.connect(lambda: (self.stack.setCurrentIndex(0), self.loading()))
+        back_home.clicked.connect(lambda: self.stack.setCurrentIndex(0))
 
     def drivers_func(self):
         self.drivers.setObjectName("drivers")
@@ -589,11 +593,7 @@ class f1_app(QWidget):
             # No constructor data available
             pass
 
-        back_home.clicked.connect(lambda: (self.stack.setCurrentIndex(0), self.loading()))
-
-    def loading(self):
-        QApplication.processEvents()   
-        self.home_func()
+        back_home.clicked.connect(lambda: self.stack.setCurrentIndex(0))
 
 if __name__ == "__main__":
     app = QApplication([])
