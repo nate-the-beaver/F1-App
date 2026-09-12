@@ -1,4 +1,5 @@
 This is a simple dashboard for viewing basic updated F1 season info.
+The required libraries are PyQt5 and FastF1.
 
 On the home page, you can view:
  - Next session
