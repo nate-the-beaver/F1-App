@@ -13,5 +13,5 @@ On the home page, you can view:
 You can also view the full season schedule, including previous races and their winners, and upcoming races.
 Additionally, you can access the entire drivers standings and constructors standings, with other info.
 
-This app runs on Python, using the PyQt5 module, with data provided by the FastF1 api.
+This app runs on Python, using the PyQt5 module, with data provided by the FastF1 API.
 This is a creative project that is not endorsed or affiliated officially with F1/Formula One/Formula One World Championship.
